@@ -1,0 +1,9 @@
+2018-12-25 22:14:53 UTC: Child process in pool #2 with PID 69 unexpectedly closed control socket
+2018-12-25 22:14:53 UTC: Error log from process in pool #2 with PID 69: Error in "connect" function: /opt/moonbridge/moonbridge_http.lua:1096: Expected integer (file descriptor), I/O handle, or listener in table key
+2018-12-25 22:14:53 UTC: Error log from process in pool #2 with PID 69: stack traceback:
+2018-12-25 22:14:53 UTC: Error log from process in pool #2 with PID 69:         [C]: in function 'poll'
+2018-12-25 22:14:53 UTC: Error log from process in pool #2 with PID 69:         /opt/moonbridge/moonbridge_http.lua:1096: in function 'outer_handler'
+2018-12-25 22:14:53 UTC: Error log from process in pool #2 with PID 69:         /opt/webmcp/bin/mcp.lua:381: in function </opt/webmcp/bin/mcp.lua:375>
+2018-12-25 22:14:53 UTC: Child process in pool #2 with PID 69 returned with exit code 1
+2018-12-25 22:14:53 UTC: Initiate shutdown
+2018-12-25 22:14:53 UTC: All worker threads have terminated
