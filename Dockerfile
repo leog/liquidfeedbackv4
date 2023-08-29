@@ -80,8 +80,8 @@ RUN cd webmcp-v${WEBMCP_VERSION} && make && \
 # 6. Install the LiquidFeedback-Frontend
 USER root
 RUN cd /
-RUN apt-get install -y mercurial
-RUN hg clone --verbose https://www.public-software-group.org/mercurial/liquid_feedback_frontend /opt/liquid_feedback_frontend
+RUN apt-get install -y git
+RUN git clone https://github.com/fluidemocracy/frontend-legacy.git /opt/liquid_feedback_frontend
 RUN mkdir -p /opt/liquid_feedback_frontend/tmp && \
 	chown -R www-data /opt/liquid_feedback_frontend/tmp
 
