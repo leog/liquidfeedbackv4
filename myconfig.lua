@@ -36,7 +36,7 @@ config.use_terms_checkboxes = {
   
 -- Absolute base url of application
 -- ------------------------------------------------------------------------
-config.absolute_base_url = "/lf"
+config.absolute_base_url = "http://localhost:8080/lf/"
 
 
 -- Connection information for the LiquidFeedback database
@@ -485,9 +485,9 @@ config.port = 8080
 config.enable_debug_trace = true
 
 
-config.fork = {
-  pre =1, min = 1, max = 1, max_requests = 1, min_requests = 1
-}
+--config.fork = {
+--  pre =1, min = 1, max = 1, max_requests = 1, min_requests = 1
+--}
 
 --config.oauth2 = {
 --  available_scopes = {

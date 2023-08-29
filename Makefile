@@ -1,5 +1,5 @@
 build:
-	docker build -t lfv4 . --no-cache
+	docker build -t lfv4 .
 
 run:
 	docker run --name lfv4 -p 8080:8080 -d lfv4

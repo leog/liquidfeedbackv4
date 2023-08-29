@@ -1,5 +1,5 @@
 FROM nickblah/lua:5.3
-
+SHELL ["/bin/bash", "-c"]
 # Use baseimage-docker's init system.
 #RUN /sbin/my_init
 
@@ -92,7 +92,27 @@ RUN echo exim4-config exim4/dc_eximconfig_configtype select "internet site; mail
 RUN DEBIAN_FRONTEND=noninteractive dpkg-reconfigure exim4-config
 
 # 8. Configure the LiquidFeedback-Frontend
-COPY myconfig.lua /opt/liquid_feedback_frontend/config/myconfig.lua
+RUN echo $'config.instance_name = "Instance name" \n\
+	config.app_service_provider = "Snake Oil<br/>10000 Berlin<br/>Germany" \n\
+	config.use_terms = "<h1>Terms of Use</h1><p>Insert terms here</p>" \n\
+	config.absolute_base_url = "http://localhost:8080/lf/" \n\
+	config.database = { engine="postgresql", dbname="liquid_feedback" } \n\
+	config.enforce_formatting_engine = "markdown2" \n\
+	config.formatting_engines = { \n\
+	{ id = "markdown2", \n\
+	name = "python-markdown2", \n\
+	executable = "markdown2", \n\
+	args = {"-s", "escape", "-x", "nofollow,wiki-tables"}, \n\
+	remove_images = true \n\
+	}, \n\
+	} \n\
+	config.public_access = "anonymous" \n\
+	config.enabled_languages = { "en" } \n\
+	config.default_lang = "en" \n\
+	config.localhost = false \n\
+	config.port = 8080 \n\
+	config.enable_debug_trace = true \n\
+	' > /opt/liquid_feedback_frontend/config/myconfig.lua
 
 # 9. Setup regular execution of lf_update and related commands
 COPY lf_updated /opt/liquid_feedback_core/lf_updated
